@@ -1,0 +1,27 @@
+{
+  "name": "story-branch",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "node --env-file-if-exists=.env --experimental-strip-types server/index.ts",
+    "server": "node --env-file-if-exists=.env --experimental-strip-types server/index.ts",
+    "test:server": "node --experimental-strip-types --test server/services/llm.test.ts server/services/storyWriter.test.ts",
+    "build": "vue-tsc -b && tsc -p tsconfig.server.json && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "vue": "^3.5.41"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2",
+    "vue-tsc": "^3.3.11"
+  }
+}
