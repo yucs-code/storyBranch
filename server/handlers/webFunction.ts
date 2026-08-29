@@ -1,4 +1,4 @@
-import type { StoryApiResult } from './story.ts'
+import type { StoryApiResult } from './story'
 
 type StoryRequestHandler = (body: unknown) => Promise<StoryApiResult>
 

@@ -4,9 +4,9 @@ import type {
   BranchesResponse,
   ContinueResponse,
   StoryNode,
-} from '../../src/types/story.ts'
-import { LlmServiceError, planBranches } from '../services/llm.ts'
-import { writeStory } from '../services/storyWriter.ts'
+} from '../../src/types/story'
+import { LlmServiceError, planBranches } from '../services/llm'
+import { writeStory } from '../services/storyWriter'
 
 type StoryApiBody = BranchesResponse | ContinueResponse | ApiErrorResponse
 

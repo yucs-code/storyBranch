@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { LlmServiceError } from './llm.ts'
-import { parseStoryWriterContent } from './storyWriter.ts'
+import { LlmServiceError } from './llm'
+import { parseStoryWriterContent } from './storyWriter'
 
 const validResult = {
   content: '主角沿着选定方向继续调查，新的线索让局势变得更加复杂。',

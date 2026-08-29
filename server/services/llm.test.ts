@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { LlmServiceError, parseBranchPlannerContent, planBranches } from './llm.ts'
+import { LlmServiceError, parseBranchPlannerContent, planBranches } from './llm'
 
 const validResult = {
   summary: '主角发现了新的异常线索。',

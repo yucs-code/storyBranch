@@ -2,7 +2,7 @@ import { Router } from 'express'
 import {
   handleBranchesRequest,
   handleContinueRequest,
-} from '../handlers/story.ts'
+} from '../handlers/story'
 
 const storyRouter = Router()
 

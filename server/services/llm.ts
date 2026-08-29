@@ -1,8 +1,8 @@
-import type { Branch, BranchesResponse, StoryNode } from '../../src/types/story.ts'
+import type { Branch, BranchesResponse, StoryNode } from '../../src/types/story'
 import {
   BRANCH_PLANNER_SYSTEM_PROMPT,
   createBranchPlannerUserPrompt,
-} from '../prompts/branchPlanner.ts'
+} from '../prompts/branchPlanner'
 
 const LLM_TIMEOUT_MS = 30_000
 
