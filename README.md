@@ -91,6 +91,25 @@ npm run test:server
 npm run build
 ```
 
+## 生产运行
+
+先构建 Vue 静态资源，再启动同时提供页面和 API 的 Node 服务：
+
+```bash
+npm run build
+npm start
+```
+
+部署平台可使用：
+
+```text
+Node Version: 22.12+
+Build Command: npm run build
+Start Command: npm start
+```
+
+服务端默认监听 `3001` 端口；部署平台提供 `PORT` 时会自动使用该端口。
+
 ## 环境变量
 
 ```dotenv
