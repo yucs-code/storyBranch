@@ -1,4 +1,4 @@
-import type { StoryNode } from '../../src/types/story'
+import type { StoryNode } from '../../src/types/story.js'
 
 export const BRANCH_PLANNER_SYSTEM_PROMPT = `你是一名专业的故事剧情导演。
 

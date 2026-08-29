@@ -1,13 +1,13 @@
-import type { Branch, ContinueResponse, StoryNode } from '../../src/types/story'
+import type { Branch, ContinueResponse, StoryNode } from '../../src/types/story.js'
 import {
   STORY_WRITER_SYSTEM_PROMPT,
   createStoryWriterUserPrompt,
-} from '../prompts/storyWriter'
+} from '../prompts/storyWriter.js'
 import {
   extractJsonText,
   LlmServiceError,
   requestChatCompletion,
-} from './llm'
+} from './llm.js'
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)

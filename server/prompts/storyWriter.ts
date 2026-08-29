@@ -1,4 +1,4 @@
-import type { Branch, StoryNode } from '../../src/types/story'
+import type { Branch, StoryNode } from '../../src/types/story.js'
 
 export const STORY_WRITER_SYSTEM_PROMPT = `你是一名专业故事编剧。
 

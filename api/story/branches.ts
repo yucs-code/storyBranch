@@ -1,5 +1,5 @@
-import { handleBranchesRequest } from '../../server/handlers/story'
-import { handleWebFunctionRequest } from '../../server/handlers/webFunction'
+import { handleBranchesRequest } from '../../server/handlers/story.js'
+import { handleWebFunctionRequest } from '../../server/handlers/webFunction.js'
 
 export default {
   fetch(request: Request): Promise<Response> {

@@ -1,4 +1,4 @@
-import type { StoryApiResult } from './story'
+import type { StoryApiResult } from './story.js'
 
 type StoryRequestHandler = (body: unknown) => Promise<StoryApiResult>
 

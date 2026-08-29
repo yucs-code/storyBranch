@@ -3,7 +3,7 @@ import type { ErrorRequestHandler } from 'express'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import storyRouter from './routes/story'
+import storyRouter from './routes/story.js'
 
 const app = express()
 const port = Number(process.env.PORT) || 3001

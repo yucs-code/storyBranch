@@ -4,9 +4,9 @@ import type {
   BranchesResponse,
   ContinueResponse,
   StoryNode,
-} from '../../src/types/story'
-import { LlmServiceError, planBranches } from '../services/llm'
-import { writeStory } from '../services/storyWriter'
+} from '../../src/types/story.js'
+import { LlmServiceError, planBranches } from '../services/llm.js'
+import { writeStory } from '../services/storyWriter.js'
 
 type StoryApiBody = BranchesResponse | ContinueResponse | ApiErrorResponse
 
@@ -46,8 +46,15 @@ function errorResult(status: number, code: string, message: string): StoryApiRes
   }
 }
 
-function llmFailureStatus(error: unknown): number {
-  const reason = error instanceof LlmServiceError ? error.reason : 'UNKNOWN'
+function getLlmFailureReason(error: unknown): string {
+  if (error instanceof LlmServiceError) {
+    return error.reason
+  }
+
+  return 'UNKNOWN'
+}
+
+function llmFailureStatus(reason: string): number {
   return reason === 'CONFIG_MISSING' ? 503 : reason === 'TIMEOUT' ? 504 : 502
 }
 
@@ -67,10 +74,10 @@ export async function handleBranchesRequest(body: unknown): Promise<StoryApiResu
     const result = await planBranches(background, currentStory, history as StoryNode[])
     return { status: 200, body: result }
   } catch (error) {
-    const reason = error instanceof LlmServiceError ? error.reason : 'UNKNOWN'
+    const reason = getLlmFailureReason(error)
     console.error(`Branch Planner failed: ${reason}`)
     return errorResult(
-      llmFailureStatus(error),
+      llmFailureStatus(reason),
       'BRANCH_PLANNER_FAILED',
       '剧情方向生成失败，请稍后重试。',
     )
@@ -98,10 +105,10 @@ export async function handleContinueRequest(body: unknown): Promise<StoryApiResu
     )
     return { status: 200, body: result }
   } catch (error) {
-    const reason = error instanceof LlmServiceError ? error.reason : 'UNKNOWN'
+    const reason = getLlmFailureReason(error)
     console.error(`Story Writer failed: ${reason}`)
     return errorResult(
-      llmFailureStatus(error),
+      llmFailureStatus(reason),
       'STORY_WRITER_FAILED',
       '剧情续写失败，请稍后重试。',
     )
